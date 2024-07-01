@@ -15,7 +15,7 @@ st.write("This app correctly detect heart failure based on data")
 
 # Creating Sidebar for inputs
 st.sidebar.title("Inputs")
-age = st.sidebar.number_input("Age", 40.0, 95.0, 50.0)
+age = st.sidebar.slider("Age", 40.0, 95.0)
 anaemia = st.sidebar.number_input("Anaemia: 1 for Yes, 0 for No", 0.0,1.0,0.0)
 creatinine_phosphokinase = st.sidebar.number_input("Level of the creatinine phosphokinase enzyme in the blood (mcg/L)", 30.0, 1202.0, 1000.0)
 diabetes = st.sidebar.number_input("Diabetes: 1 for Yes, 0 for No", 0.0, 1.0,0.0)
