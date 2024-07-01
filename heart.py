@@ -26,11 +26,11 @@ serum_creatinine = st.sidebar.number_input("Serum Creatinine: Level of serum cre
 serum_sodium = st.sidebar.number_input("Serum Sodium: Level of serum sodium in the blood (mEq/L)", 125.0, 148.0,130.0)
 sex = st.sidebar.slider("Sex: 0 for Woman, 1 for Man", 0.0,1.0,step=1.0)
 smoking = st.sidebar.slider("Smoking: 1 for Yes, 0 for No", 0.0,1.0,step=1.0)
-
+time = st.sidebar.slider("Follow-up period (days)", 4.0,285.0,step=1.0)
 # Button to trigger prediction
 if st.button("Predict"):
 # Getting Prediction from model
-    inp = np.array([age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking])
+    inp = np.array([age, ejection_fraction, serum_creatinine, time])
     inp = np.expand_dims(inp, axis=0)
     prediction = model.predict(inp)
 
