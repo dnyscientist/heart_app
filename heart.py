@@ -36,7 +36,7 @@ if st.button("Predict"):
 
 # Show Results when the button is clicked
     result = prediction
-    st.write = (result)
+    st.write(result)
     # death[np.argmax(prediction)]
     # if result == 1:
     #     st.write("**Heart Failure will happen and cause death event**")
