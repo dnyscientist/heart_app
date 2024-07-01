@@ -26,12 +26,11 @@ serum_creatinine = st.sidebar.number_input("Serum Creatinine: Level of serum cre
 serum_sodium = st.sidebar.number_input("Serum Sodium: Level of serum sodium in the blood (mEq/L)", 125.0, 148.0,130.0)
 sex = st.sidebar.slider("Sex: 0 for Woman, 1 for Man", 0.0,1.0,step=1.0)
 smoking = st.sidebar.slider("Smoking: 1 for Yes, 0 for No", 0.0,1.0,step=1.0)
-time = st.sidebar.number_input("Time: Follow-up period (days)", 4.0, 285.0,5.0)
 
 # Button to trigger prediction
 if st.button("Predict"):
 # Getting Prediction from model
-    inp = np.array([age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking, time])
+    inp = np.array([age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking])
     inp = np.expand_dims(inp, axis=0)
     prediction = model.predict(inp)
 
@@ -39,6 +38,8 @@ if st.button("Predict"):
     result = death[np.argmax(prediction)]
     if result == 1:
         st.write("**Heart Failure will happen and cause death event**")
-    else:
+    elif result == 0:
         st.write("**Heart Failure will not happen and cause death event**")
+    else:
+        st.write("Unknown")
 
