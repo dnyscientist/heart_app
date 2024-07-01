@@ -8,7 +8,7 @@ import numpy as np
 with open('heart_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-death = [1, 0]
+death = [0, 1]
 
 st.title("Heart Failure Detection")
 st.write("This app correctly detect heart failure based on data")
