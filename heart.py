@@ -35,7 +35,8 @@ if st.button("Predict"):
     prediction = model.predict(inp)
 
 # Show Results when the button is clicked
-    result = death[np.argmax(prediction)]
+    result = prediction
+    # death[np.argmax(prediction)]
     if result == 1:
         st.write("**Heart Failure will happen and cause death event**")
     elif result == 0:
