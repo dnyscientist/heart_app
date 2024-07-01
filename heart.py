@@ -15,18 +15,18 @@ st.write("This app correctly detect heart failure based on data")
 
 # Creating Sidebar for inputs
 st.sidebar.title("Inputs")
-age = st.sidebar.number_input("age", 40.0, 95.0, 50.0)
-anaemia = st.sidebar.number_input("anaemia", 0.0,1.0,0.0)
-creatinine_phosphokinase = st.sidebar.number_input("creatinine_phosphokinase", 30.0, 1202.0, 1000.0)
-diabetes = st.sidebar.number_input("diabetes", 0.0, 1.0,0.0)
-ejection_fraction = st.sidebar.number_input("ejection_fraction", 14.0, 65.0, 50.0)
-high_blood_pressure = st.sidebar.number_input("high_blood_pressure", 0.0,1.0,0.0)
-platelets = st.sidebar.number_input("platelets", 122000.0, 427000.0,200000.0)
-serum_creatinine = st.sidebar.number_input("serum_creatinine", 0.6, 2.1, 1.0)
-serum_sodium = st.sidebar.number_input("serum_sodium", 125.0, 148.0,130.0)
-sex = st.sidebar.number_input("sex", 0.0,1.0,0.0)
-smoking = st.sidebar.number_input("smoking", 0.0,1.0,0.0)
-time = st.sidebar.number_input("time", 4.0, 285.0,5.0)
+age = st.sidebar.number_input("Age", 40.0, 95.0, 50.0)
+anaemia = st.sidebar.number_input("Anaemia: 1 for Yes, 0 for No", 0.0,1.0,0.0)
+creatinine_phosphokinase = st.sidebar.number_input("Level of the creatinine phosphokinase enzyme in the blood (mcg/L)", 30.0, 1202.0, 1000.0)
+diabetes = st.sidebar.number_input("Diabetes: 1 for Yes, 0 for No", 0.0, 1.0,0.0)
+ejection_fraction = st.sidebar.number_input("Ejection Fraction: Percentage of blood leaving the heart at each contraction (percentage)", 14.0, 65.0, 50.0)
+high_blood_pressure = st.sidebar.number_input("High Blood Pressure: 1 for Yes, 0 for No", 0.0,1.0,0.0)
+platelets = st.sidebar.number_input("Platelets: Platelets in the blood (kiloplatelets/mL)", 122000.0, 427000.0,200000.0)
+serum_creatinine = st.sidebar.number_input("Serum Creatinine: Level of serum creatinine in the blood (mg/dL)", 0.6, 2.1, 1.0)
+serum_sodium = st.sidebar.number_input("Serum Sodium: Level of serum sodium in the blood (mEq/L)", 125.0, 148.0,130.0)
+sex = st.sidebar.number_input("Sex: 0 for Woman, 1 for Man", 0.0,1.0,0.0)
+smoking = st.sidebar.number_input("Smoking: 1 for Yes, 0 for No", 0.0,1.0,0.0)
+time = st.sidebar.number_input("Time: Follow-up period (days)", 4.0, 285.0,5.0)
 
 # Button to trigger prediction
 if st.button("Predict"):
@@ -37,5 +37,8 @@ if st.button("Predict"):
 
 # Show Results when the button is clicked
     result = death[np.argmax(prediction)]
-    st.write("**Heart Failure is " + str(result) + "**")
+    if result == 1:
+        st.write("**Heart Failure will cause death event**")
+    else:
+        st.write("**Heart Failure will not cause death event**")
 
